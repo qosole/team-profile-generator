@@ -21,4 +21,10 @@ describe('Manager', () => {
     it('should have an officeNumber attribute', () => {
         expect(manager.officeNumber).toEqual(officeNumber);
     })
+
+    describe('getRole', () => {
+        it('should return the role of the manager', () => {
+            expect(manager.getRole()).toEqual('Manager');
+        })
+    })
 })
