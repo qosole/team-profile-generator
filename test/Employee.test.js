@@ -22,5 +22,11 @@ describe('Employee', () => {
         })
     })
 
-  
+    describe('getId', () => {
+        it('should return the id of the employee', () => {
+            const employee = new Employee(name, id, email);
+
+            expect(employee.getId()).toEqual(employee.id);
+        })
+    })
 })
