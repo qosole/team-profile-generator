@@ -29,4 +29,12 @@ describe('Employee', () => {
             expect(employee.getId()).toEqual(employee.id);
         })
     })
+
+    describe('getEmail', () => {
+        it('should return the email of the employee', () => {
+            const employee = new Employee(name, id, email);
+
+            expect(employee.getEmail()).toEqual(employee.email);
+        })
+    })
 })
