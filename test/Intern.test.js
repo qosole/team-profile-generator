@@ -17,4 +17,8 @@ describe('Intern', () => {
         expect(intern.getId()).toEqual(intern.id);
         expect(intern.getEmail()).toEqual(intern.email);
     })
+
+    it('should have a school attribute', () => {
+        expect(intern.school).toEqual(school);
+    })
 })
