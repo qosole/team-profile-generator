@@ -1,15 +1,22 @@
+// These classes will be used to store the user input inside of objects
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 
-const inquirer = require('inquirer');
-const generate = require('./src/generate');
+const inquirer = require('inquirer'); // Used to obtain user input
+const generate = require('./src/generate'); // Provides the generate() function
 
 
+// These will be given to the generate() function
 let manager;
 let engineers = [];
 let interns = [];
 
+/**
+ * This function creates a looping prompt for user input until the user selects the "3. Finish" option.
+ * @params None
+ * @returns {undefined} Nothing
+ */
 const menuPrompt = () => {
     // Creating a repeating menu for the user to choose what team member they want to add next or to finish adding
     const nextChoices = [
@@ -88,11 +95,16 @@ const menuPrompt = () => {
 
         // Finish adding
         if (data.userMenuChoice == nextChoices[2]) {
-            generate(manager, engineers, interns); // Using ./src/generate.js to generate the html page
+            generate(manager, engineers, interns); // Using the generate() function to generate the html page
         }
     });
 }
 
+/**
+ * This function initializes the app.
+ * @params None
+ * @returns {undefined} Nothing
+ */
 const init = () => {
     console.log('Welcome to a team profile generator! Please follow the prompts to create your own team profile!')
     console.log('-----------------------------------------------------------------------------------------------');
@@ -114,12 +126,14 @@ const init = () => {
             name: 'managerOfficeNumber'
         }
     ]).then(data => {
+        // Creating a new Manager object for the generate() function to use
         manager = new Manager(data.managerName, data.managerId, data.managerEmail, data.managerOfficeNumber);
         if (!manager) {
             throw new Error('Invalid input!');
         }
-        menuPrompt();
+        menuPrompt(); // Starting the looping menu 
     })
 }
 
+// Initialize app
 init();

@@ -1,6 +1,14 @@
 const fs = require('fs');
 
 
+/** 
+ * This function generates the base html file for the team profile, as well as a helper.js file that allows the script.js file to read the user input
+ * @param {object} manager A Manager object created from user input.
+ * @param {array} engineers An array of Engineer objects created from user input.
+ * @param {array} interns An array of Intern objects created from user input.
+ * @returns {undefined} Nothing
+ * */ 
+ 
 const generate = (manager, engineers, interns) => {
     const filePath = `./dist/team-${manager.name}.html`;
     const pageBody = 
@@ -41,7 +49,7 @@ const generate = (manager, engineers, interns) => {
     // Generating the html page with manager card
     fs.writeFile(filePath, pageBody, (err) => {
         err ? console.log(err) : console.log('Team profile page has been generated!');
-    })
+    });
 
     // Writing the data for the engineers and interns to a helper js file 
     const remainingData = 
@@ -51,7 +59,7 @@ const interns = ${JSON.stringify(interns)};
 `
     fs.writeFile(`./dist/scripts/helper-${manager.name}.js`, remainingData, (err) => {
         err ? console.log(err) : console.log('Data successfully written!');
-    })
+    });
 }
 
 module.exports = generate;
