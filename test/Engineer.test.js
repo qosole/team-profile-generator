@@ -21,4 +21,10 @@ describe('Engineer', () => {
     it('should have a github attribute', () => {
         expect(engineer.github).toEqual(github);
     })
+
+    describe('getGithub', () => {
+        it('should return the github of the engineer', () => {
+            expect(engineer.getGithub()).toEqual(engineer.github);
+        })
+    })
 })
