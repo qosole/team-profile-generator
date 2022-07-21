@@ -17,4 +17,8 @@ describe('Engineer', () => {
         expect(engineer.getId()).toEqual(engineer.id);
         expect(engineer.getEmail()).toEqual(engineer.email);
     })
+
+    it('should have a github attribute', () => {
+        expect(engineer.github).toEqual(github);
+    })
 })
