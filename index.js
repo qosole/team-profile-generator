@@ -115,6 +115,9 @@ const init = () => {
         }
     ]).then(data => {
         manager = new Manager(data.managerName, data.managerId, data.managaerEmail, data.managerOfficeNumber);
+        if (!manager) {
+            throw new Error('Invalid input!');
+        }
         menuPrompt();
     })
 }
