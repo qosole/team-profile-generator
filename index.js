@@ -1,9 +1,9 @@
-const Employee = require('./lib/Employee');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 
 const inquirer = require('inquirer');
+const generate = require('./src/generate');
 
 
 let manager;
@@ -88,7 +88,7 @@ const menuPrompt = () => {
 
         // Finish adding
         if (data.userMenuChoice == nextChoices[2]) {
-            console.log('Team profile page has been generated!');
+            generate(manager, engineers, interns); // Using ./src/generate.js to generate the html page
         }
     });
 }
