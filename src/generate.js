@@ -26,50 +26,31 @@ const generate = (manager, engineers, interns) => {
         <div class="col">
             <div class="card text-center h-100 bg-success">
             <div class="card-body">
-                <h5 class="card-title">${manager.name}</h5>
+                <h3 class="card-title">${manager.name}</h3>
                 <p class="card-text">Role: ${manager.getRole()} <br> ID: ${manager.id} <br> Email: ${manager.email} <br> Office Number: ${manager.officeNumber}</p>
             </div>
             </div>
         </div>
     </div>
 
-    <script src="../src/generate.js"></script>
+    <script src="./scripts/helper-${manager.name}.js"></script>
+    <script src="./scripts/script.js"></script>
 </body>
 </html>
 `
+    // Generating the html page with manager card
     fs.writeFile(filePath, pageBody, (err) => {
-        err ? console.log(err) : () => {
-            const cardSection = document.querySelector('.row-cols-md-2'); // Selecting the div that will house all of the employee cards
+        err ? console.log(err) : console.log('Team profile page has been generated!');
+    })
 
-            // Creating cards for each engineer
-            for (let i = 0; i < engineers.length; i++) {
-                const newEngineerCard = document.createElement('div');
-                newEngineerCard.classList.add('col');
-                
-                const newEngineerCardMain = document.createElement('div');
-                newEngineerCardMain.classList.add('card', 'text-center', 'h-100', 'bg-danger');
-
-                const newEngineerCardBody = document.createElement('div');
-                newEngineerCardBody.classList.add('card-body');
-
-                const newEngineerCardTitle = document.createElement('h5');
-                newEngineerCardTitle.classList.add('card-title');
-                newEngineerCardTitle.innerHTML = `${engineers[i].name}`;
-
-                const newEngineerCardDetails = document.createElement('p');
-                newEngineerCardDetails.classList.add('card-text');
-                newEngineerCardDetails.innerHTML = `Role: ${engineers[i].getRole()} <br> ID: ${engineers[i].id} <br> Email: ${engineers[i].email} <br> GitHub: <a href="https://github.com/${engineers[i].github}">${engineers[i].github}</a>`;
-
-                newEngineerCardBody.appendChild(newEngineerCardTitle);
-                newEngineerCardBody.appendChild(newEngineerCardDetails);
-                
-                newEngineerCardMain.appendChild(newEngineerCardBody);
-                newEngineerCard.appendChild(newEngineerCardMain);
-
-                cardSection.appendChild(newEngineerCard);
-            }
-            console.log('Team profile page has been generated!');
-        }
+    // Writing the data for the engineers and interns to a helper js file 
+    const remainingData = 
+`
+const engineers = ${JSON.stringify(engineers)};
+const interns = ${JSON.stringify(interns)};
+`
+    fs.writeFile(`./dist/scripts/helper-${manager.name}.js`, remainingData, (err) => {
+        err ? console.log(err) : console.log('Data successfully written!');
     })
 }
 

@@ -17,10 +17,19 @@ h1 {
     color: white;
 }
 
+.col {
+    width: 30%;
+    margin: 3% auto;
+}
+
 .card {
     box-shadow: 10px 10px 8px #575555;
 }
 
 .card-title, .card-text {
+    color: white;
+}
+
+a {
     color: white;
 }
