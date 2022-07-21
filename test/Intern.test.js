@@ -27,4 +27,10 @@ describe('Intern', () => {
             expect(intern.getSchool()).toEqual(intern.school);
         })
     })
+
+    describe('getRole', () => {
+        it('should return the role of the intern', () => {
+            expect(intern.getRole()).toEqual('Intern');
+        })
+    })
 })
