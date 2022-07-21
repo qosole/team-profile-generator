@@ -114,7 +114,7 @@ const init = () => {
             name: 'managerOfficeNumber'
         }
     ]).then(data => {
-        manager = new Manager(data.managerName, data.managerId, data.managaerEmail, data.managerOfficeNumber);
+        manager = new Manager(data.managerName, data.managerId, data.managerEmail, data.managerOfficeNumber);
         if (!manager) {
             throw new Error('Invalid input!');
         }
