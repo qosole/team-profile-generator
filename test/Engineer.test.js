@@ -27,4 +27,10 @@ describe('Engineer', () => {
             expect(engineer.getGithub()).toEqual(engineer.github);
         })
     })
+
+    describe('getRole', () => {
+        it('should return the role of the engineer', () => {
+            expect(engineer.getRole()).toEqual('Engineer');
+        })
+    })
 })
