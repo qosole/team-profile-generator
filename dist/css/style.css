@@ -1,0 +1,27 @@
+body {
+    background-color: rgb(189, 189, 140);
+}
+
+header {
+    width: 30%;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    box-shadow: 10px 10px 8px #141313;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 8%;
+    margin-bottom: 8%;
+    color: white;
+}
+
+.card {
+    box-shadow: 10px 10px 8px #141313;
+}
+
+.card-title, .card-text {
+    color: white;
+}
