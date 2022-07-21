@@ -21,4 +21,10 @@ describe('Intern', () => {
     it('should have a school attribute', () => {
         expect(intern.school).toEqual(school);
     })
+
+    describe('getSchool', () => {
+        it('should return the school of the intern', () => {
+            expect(intern.getSchool()).toEqual(intern.school);
+        })
+    })
 })
